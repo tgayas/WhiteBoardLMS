@@ -49,14 +49,12 @@ namespace WhiteBoardLMS.Controllers
         // GET: Enrollments/Create
         public IActionResult Create()
         {
-            ViewData["CourseId"] = new SelectList(_context.Courses, "CourseId", "CourseId");
-            ViewData["UserId"] = new SelectList(_context.Users, "UserId", "UserId");
+            ViewData["CourseId"] = new SelectList(_context.Courses, "CourseId", "CourseName"); // Updated to show CourseName instead of ID
+            ViewData["UserId"] = new SelectList(_context.Users, "Id", "UserName"); // Updated to use UserId and show UserName for better readability
             return View();
         }
 
         // POST: Enrollments/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("EnrollmentId,UserId,CourseId")] Enrollment enrollment)
@@ -67,8 +65,8 @@ namespace WhiteBoardLMS.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CourseId"] = new SelectList(_context.Courses, "CourseId", "CourseId", enrollment.CourseId);
-            ViewData["UserId"] = new SelectList(_context.Users, "UserId", "UserId", enrollment.UserId);
+            ViewData["CourseId"] = new SelectList(_context.Courses, "CourseId", "CourseName", enrollment.CourseId);
+            ViewData["UserId"] = new SelectList(_context.Users, "Id", "UserName", enrollment.UserId);
             return View(enrollment);
         }
 
@@ -85,14 +83,12 @@ namespace WhiteBoardLMS.Controllers
             {
                 return NotFound();
             }
-            ViewData["CourseId"] = new SelectList(_context.Courses, "CourseId", "CourseId", enrollment.CourseId);
-            ViewData["UserId"] = new SelectList(_context.Users, "UserId", "UserId", enrollment.UserId);
+            ViewData["CourseId"] = new SelectList(_context.Courses, "CourseId", "CourseName", enrollment.CourseId);
+            ViewData["UserId"] = new SelectList(_context.Users, "Id", "UserName", enrollment.UserId);
             return View(enrollment);
         }
 
         // POST: Enrollments/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("EnrollmentId,UserId,CourseId")] Enrollment enrollment)
@@ -122,8 +118,8 @@ namespace WhiteBoardLMS.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CourseId"] = new SelectList(_context.Courses, "CourseId", "CourseId", enrollment.CourseId);
-            ViewData["UserId"] = new SelectList(_context.Users, "UserId", "UserId", enrollment.UserId);
+            ViewData["CourseId"] = new SelectList(_context.Courses, "CourseId", "CourseName", enrollment.CourseId);
+            ViewData["UserId"] = new SelectList(_context.Users, "Id", "UserName", enrollment.UserId);
             return View(enrollment);
         }
 

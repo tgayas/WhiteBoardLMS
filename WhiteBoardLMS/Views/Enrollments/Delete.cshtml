@@ -11,20 +11,20 @@
     <h4>Enrollment</h4>
     <hr />
     <dl class="row">
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.User)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.User.UserId)
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.User.UserName) <!-- Updated to use UserName -->
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Course)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Course.CourseId)
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Course.CourseName) <!-- Updated to use CourseName -->
         </dd>
     </dl>
-    
+
     <form asp-action="Delete">
         <input type="hidden" asp-for="EnrollmentId" />
         <input type="submit" value="Delete" class="btn btn-danger" /> |
