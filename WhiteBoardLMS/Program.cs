@@ -42,8 +42,14 @@ app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
 
+// Map endpoints and configure routing
+app.MapControllerRoute(
+    name: "login",
+    pattern: "login",
+    defaults: new { controller = "Homelogin", action = "Login" });
+
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Homelogin}/{action=Login}/{id?}");
 
 app.Run();

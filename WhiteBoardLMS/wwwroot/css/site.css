@@ -1,31 +1,105 @@
-html {
-  font-size: 14px;
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
 }
 
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+.container-fluid {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+.form-container {
+    width: 100%;
+    max-width: 450px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    background: #f9f9f9;
+    margin: auto; /* Ensure form is centered */
 }
 
-html {
-  position: relative;
-  min-height: 100%;
+.logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
 }
 
-body {
-  margin-bottom: 60px;
+.login-logo {
+    width: 200px;
+    height: auto;
+    margin-right: 10px;
 }
 
-.form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
-  color: var(--bs-secondary-color);
-  text-align: end;
+.btn-primary-custom, .btn-secondary-custom {
+    width: 100%;
+    padding: 12px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    border-radius: 6px;
 }
 
-.form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
-  text-align: start;
+.btn-primary-custom {
+    background-color: #007bff;
+    color: white;
+    border: none;
+}
+
+    .btn-primary-custom:hover {
+        background-color: #0056b3;
+        color: white;
+    }
+
+.btn-secondary-custom {
+    background-color: #f0f0f0;
+    color: black;
+    border: 1px solid #ccc;
+}
+
+    .btn-secondary-custom:hover {
+        background-color: #e2e6ea;
+    }
+
+.footer {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    color: #888;
+    text-align: left;
+    font-size: 0.9rem;
+}
+
+a.custom-link {
+    color: #007bff;
+    text-decoration: underline;
+}
+
+    a.custom-link:hover {
+        text-decoration: none;
+    }
+
+/* Media Query for Small Devices */
+@media (max-width: 768px) {
+    .form-container {
+        margin: 20px;
+        box-shadow: none;
+        padding: 10px;
+    }
+
+    .footer {
+        font-size: 0.75rem;
+        left: 10px;
+        bottom: 10px;
+    }
+}
+
+/* Media Query for Extra Small Devices */
+@media (max-width: 576px) {
+    .form-container {
+        max-width: 100%;
+        padding: 5px;
+    }
 }
